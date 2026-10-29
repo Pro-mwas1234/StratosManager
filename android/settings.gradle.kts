@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "KaziBiz"
+rootProject.name = "StratosManager"
 include(":app")

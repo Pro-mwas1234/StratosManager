@@ -122,7 +122,7 @@ class TestInvoicing:
         lst = client.get("/invoices/?status=open", headers=h).json()
         assert len(lst) == 1 and lst[0]["status"] == "issued"
 
-    def test_void_requires_owner_and_unpaid(self, client, kbz):
+    def test_void_requires_owner_and_unpaid(self, client, stratos):
         r = client.post("/auth/register", json={"email": "o@v.ke", "password": "longenough1",
                                                 "tenant_name": "V"})
         h = hdr(r.json()["token"])
@@ -155,7 +155,7 @@ class TestEntitlementsAndIsolation:
                      "/hotel/rooms", "/property/properties", "/manufacturing/boms"):
             assert client.get(path, headers=h).status_code == 200, path
 
-    def test_cross_tenant_isolation_matrix(self, client, kbz):
+    def test_cross_tenant_isolation_matrix(self, client, stratos):
         a = client.post("/auth/register", json={"email": "a@i.ke", "password": "longenough1",
                                                 "tenant_name": "A"}).json()
         b = client.post("/auth/register", json={"email": "b@i.ke", "password": "longenough1",
@@ -178,12 +178,12 @@ class TestEntitlementsAndIsolation:
         db = client.get("/dashboard", headers=hb).json()
         assert db["retail"]["today_sales_count"] == 0
 
-    def test_limit_402_on_products(self, client, kbz):
+    def test_limit_402_on_products(self, client, stratos):
         """Starter limit is 200 products; breach → 402 LIMIT with details."""
         a = client.post("/auth/register", json={"email": "l@i.ke", "password": "longenough1",
                                                 "tenant_name": "L"}).json()
         h = hdr(a["token"])
-        kbz.db.exec("UPDATE tenants SET plan_id='starter' WHERE id=?", (a["user"]["tenant_id"],))
+        stratos.db.exec("UPDATE tenants SET plan_id='starter' WHERE id=?", (a["user"]["tenant_id"],))
         for i in range(200):
             assert client.post("/retail/products", headers=h, json={
                 "sku": f"P{i}", "name": f"p{i}", "sale_price_cents": 100}).status_code == 201

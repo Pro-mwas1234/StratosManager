@@ -1,4 +1,4 @@
-# Build Plan v2 — KaziBiz (KBZ): Python API backend + Android (Kotlin) mobile app
+# Build Plan v2 — StratosManager (StratosManager): Python API backend + Android (Kotlin) mobile app
 
 > **Change from v1:** the terminal CLI (`kbz/cli`) is **dropped**. The primary user surface is now a
 > native **Android app in Kotlin** that talks to the existing FastAPI REST API. The MCP server stays
@@ -17,7 +17,7 @@
 ```
 ┌─────────────────────────────┐        HTTPS + Bearer token
 │ Android app (Kotlin)        │  ─────────────────────────────▶  FastAPI (uvicorn)
-│ Jetpack Compose + Material3 │                                 kbz/api  ──▶  kbz/services (only
+│ Jetpack Compose + Material3 │                                 kbz/api  ──▶  stratos/services/* (only
 │ Hilt DI · Room offline cache│                                        ▲      place business rules
 │ Retrofit + kotlinx.serialization│                                   │   live)
 └─────────────────────────────┘                            kbz/core/db → SQLite (WAL), later Postgres
@@ -35,7 +35,7 @@ Principles:
 kbz/                 Python backend (as today; cli/ removed)
   api/  billing/  core/  mcp_server/  seed/  services/
 android/             Gradle project (new)
-  app/src/main/java/ke/kazibiz/app/
+  app/src/main/java/ke/stratosmanager/app/
     data/remote/     Retrofit API interfaces + DTOs (@Serializable)
     data/local/      Room entities/DAOs + DataStore (session)
     data/repo/       Repositories = single source of truth (network-first, Room cache)

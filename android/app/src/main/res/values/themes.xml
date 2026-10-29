@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Compose owns all styling (Material3); this is only the pre-Compose window theme. -->
+    <style name="Theme.StratosManager" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/stratos_blue</item>
+        <item name="android:navigationBarColor">@android:color/black</item>
+    </style>
+</resources>

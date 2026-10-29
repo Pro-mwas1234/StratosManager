@@ -1,9 +1,9 @@
 """Unit tests for core primitives: money math, validation, password hashing."""
 import pytest
 
-from kbz.core.money import VAT_RATE_DEFAULT, fmt_kes, parse_amount, vat_split
-from kbz.core.domain import hash_password, verify_password, validate_kra_pin, normalize_phone
-from kbz.core.errors import ValidationError
+from stratos.core.money import VAT_RATE_DEFAULT, fmt_kes, parse_amount, vat_split
+from stratos.core.domain import hash_password, verify_password, validate_kra_pin, normalize_phone
+from stratos.core.errors import ValidationError
 
 
 class TestMoney:
