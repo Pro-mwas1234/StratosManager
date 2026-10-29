@@ -1,4 +1,4 @@
-# KaziBiz REST API Contract v0.2 (frozen for the Android app)
+# StratosManager REST API Contract v0.2 (frozen for the Android app)
 
 Base URL (dev): `http://10.0.2.2:8000` (emulator → host). All requests after login carry
 `Authorization: Bearer <token>`. Money is always **integer cents** (`*_cents` fields); never floats.
@@ -82,6 +82,6 @@ Machine codes are snake_case and stable — Kotlin `AppError.Code` maps exactly:
 - Any 402 anywhere → app shows UpgradeSheet; any 401 → re-login flow.
 
 ## Seed fixtures (demo tenants for QA/A11)
-`python -m kbz.seed.seed` creates: **Mama Mboga Duka** (starter, retail+invoicing, POS-ready products),
+`python -m stratos.seed.seed` creates: **Mama Mboga Duka** (starter, retail+invoicing, POS-ready products),
 **Nairobi Bites** (growth, restaurant), **Nakuru Lodge** (pro, hotel), **Rift Valley Apartments** (pro, property),
 **Juba Steelworks** (pro, manufacturing). Password for all demo users: `demo1234pass`.

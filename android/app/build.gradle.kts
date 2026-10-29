@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "ke.kazibiz.app"
+    namespace = "ke.stratosmanager.app"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "ke.kazibiz.app"
+        applicationId = "ke.stratosmanager.app"
         minSdk = 26
         targetSdk = 35
         versionCode = 1

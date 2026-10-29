@@ -5,12 +5,12 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".KaziBizApp"
+        android:name=".StratosApp"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
-        android:label="KaziBiz"
+        android:label="StratosManager"
         android:supportsRtl="true"
-        android:theme="@style/Theme.KaziBiz"
+        android:theme="@style/Theme.StratosManager"
         android:usesCleartextTraffic="true"> <!-- dev server over http; pin cert for prod -->
         <activity
             android:name=".MainActivity"

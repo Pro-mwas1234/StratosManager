@@ -1,7 +1,7 @@
 # Build Plan — Multi-Tenant Business Management Platform (Kenya SMB)
 
 ## 0. Product Summary
-A single Python codebase ("KaziBiz / KBZ") that lets Kenyan SMEs run six business types from one
+A single Python codebase ("StratosManager / StratosManager") that lets Kenyan SMEs run six business types from one
 tenant workspace, exposed through four surfaces that all share one service layer:
 
 1. **Modules**: retail (duka POS + stock), hotel (rooms/check-in/out), invoicing (KRA PIN, VAT 16%,

@@ -5,18 +5,18 @@ import tempfile
 import pytest
 from fastapi.testclient import TestClient
 
-from kbz.app import App
-from kbz.api.app import create_app
+from stratos.app import App
+from stratos.api.app import create_app
 
 
 @pytest.fixture()
-def kbz(tmp_path):
+def stratos(tmp_path):
     return App(str(tmp_path / "test.db"))
 
 
 @pytest.fixture()
-def client(kbz):
-    api = create_app(kbz)
+def client(stratos):
+    api = create_app(stratos)
     with TestClient(api) as c:
         yield c
 
